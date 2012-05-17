@@ -49,9 +49,7 @@
         <!-- Navigation Level 0 -->
         <div class="nav0">
           <ul>
-            <li><a href="#" title="Pagina home in Italiano">Ital</a></li>
-            <li><a href="#" title="Homepage auf Deutsch">Deut</a></li>
-            <li><a href="#" title="Hemsidan p&aring; svenska">Sven</a></li>
+            
           </ul>
         </div>			
 
@@ -138,8 +136,8 @@
         <div class="searchform">
           <form action="#" method="get" class="form">
             <fieldset>
-              <input value=" Search..." name="field" class="field" />
-              <input type="submit" value="GO!" name="button" class="button" />
+              <input value=" Buscar..." name="field" class="field" />
+              <input type="submit" value="Buscar" name="button" class="button" />
             </fieldset>
           </form>
         </div>
