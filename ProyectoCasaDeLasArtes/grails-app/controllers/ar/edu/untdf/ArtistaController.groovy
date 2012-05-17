@@ -15,7 +15,7 @@ class ArtistaController {
         [artistaInstanceList: Artista.list(params), artistaInstanceTotal: Artista.count()]
     }
 
-    def create() {
+    def registrar() {
         [artistaInstance: new Artista(params)]
     }
 
@@ -29,7 +29,7 @@ class ArtistaController {
         }*/
            if (!artistaInstance.password.equals(pass)){
                artistaInstance.errors.rejectValue("password", "user.password.dontmatch")
-               render(view:"create") //aca va el error de la password
+               redirect(action:"registrar", params:params) //aca va el error de la password
              }
              else if (artistaInstance.save()) {     
                flash.message = message(code: 'default.created.message', args: [message(code: 'artista.label', default: 'Artista'), artistaInstance.id])
@@ -110,5 +110,11 @@ class ArtistaController {
 			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'artista.label', default: 'Artista'), params.id])
             redirect(action: "show", id: params.id)
         }
+    }
+    
+    def listarObras(){
+        def artistaInstance = Artista.get(params.id)
+        
+        render(view:"listarObras")
     }
 }

@@ -42,7 +42,7 @@
         <!-- Sitelogo and sitename -->
         <a class="sitelogo" href="#" title="Go to Start page"></a>
         <div class="sitename">
-          <h1><a href="../" title="Ir a la página principal">CASA DE LAS ARTES<span style="font-weight:normal;font-size:50%;color: blueviolet"></span></a></h1>
+          <h1><a href="${createLink(uri: '/')}" title="Ir a la página principal">CASA DE LAS ARTES<span style="font-weight:normal;font-size:50%;color: blueviolet"></span></a></h1>
           <h2>Universidad Nacional de Tierra del Fuego</h2>
         </div>
     
@@ -56,7 +56,7 @@
         <!-- Navigation Level 1 -->
         <div class="nav1">
           <ul>
-            <li><a href="../" title="Ir a la página principal">Home</a></li>
+            <li><a href="${createLink(uri: '/')}" title="Ir a la página principal">Home</a></li>
             <li><a href="#" title="Get to know who we are">About</a></li>
             <li><a href="#" title="Get in touch with us">Contact</a></li>																		
             <li><a href="#" title="Get an overview of website">Sitemap</a></li>
@@ -66,7 +66,7 @@
             </g:if>            
             <g:else>
                <li><a style="color: blue" href="#" title="Entrar con mis datos">Login</a></li>
-               <li><g:link style="color: blue" controller="artista" action="create" title="Registrame como un artista">Registrarme</g:link>></li>
+               <li><g:link style="color: blue" controller="artista" action="registrar" title="Registrame como un artista">Registrarme</g:link>></li>
             </g:else>            
           </ul>
           
@@ -126,7 +126,7 @@
       <!-- Breadcrumbs -->
       <div class="header-breadcrumbs">
         <ul>
-          <li><a href="../">Home</a></li>
+          <li><a href="${createLink(uri: '/')}">Home</a></li>
           <li><a href="#">Algo1</a></li>
           <li><a href="#">Algo2</a></li>
           
@@ -158,7 +158,7 @@
         </div>
         <!-- Navigation Level 3 -->
         <div class="round-border-topright"></div>
-        <h1 class="first">Navigation Title</h1>
+        <h1 class="first">Util?</h1>
 
         <!-- Navigation with grid style -->
         <dl class="nav3-grid">
@@ -219,8 +219,8 @@
     <!-- C. FOOTER AREA -->      
 
     <div class="footer">
-      <p>Copyright &copy; 2006 Your Company | All Rights Reserved</p>
-      <p class="credits">Original design by <a href="http://www.1-2-3-4.info" title="Designer Homepage">G. Wolfgang</a> | Adapted by <a href="#" title="Adaptor Homepage">Your Name</a> | Powered by <a href="#" title="Content Management System">Your CMS</a> | <a href="http://validator.w3.org/check?uri=referer" title="Validate XHTML code">W3C XHTML 1.0</a> | <a href="http://jigsaw.w3.org/css-validator/" title="Validate CSS code">W3C CSS 2.0</a></p>
+      <p>Copyright &copy; 2012 Laboratorio de programacion y lenguajes | Todos los derechos reservados</p>
+      <p class="credits">Original design by <a href="http://www.1-2-3-4.info" title="Designer Homepage">G. Wolfgang</a></p>
     </div>      
   </div> 
   
