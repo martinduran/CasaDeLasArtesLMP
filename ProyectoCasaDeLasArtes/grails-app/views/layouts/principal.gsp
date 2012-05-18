@@ -211,7 +211,7 @@
         <div class="subcontent-unit-border-green">
           <div class="round-border-topleft"></div><div class="round-border-topright"></div>
           <h1 class="green">Categorias Disponibles</h1>
-          <p>Aca van las Categorias</p>
+          <p><g:include controller="categoria" action="listar"/></p>
         </div>
       </div>
     </div>
