@@ -60,7 +60,7 @@
             <li><a href="#" title="Get to know who we are">About</a></li>
             <li><a href="#" title="Get in touch with us">Contact</a></li>																		
             <li><a href="#" title="Get an overview of website">Sitemap</a></li>
-            <g:if test="${session.artista!=null}">
+            <g:if test="${session.user!=null}">
               <li><g:link controller="artista" action="show" title="Editar datos de mi cuenta">Mi cuenta</a></g:link>>
                 <li><a href="#" title="Get an overview of website">Mis proyectos</a></li>
             </g:if>            
