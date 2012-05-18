@@ -16,27 +16,20 @@ class ArtistaController {
     }
 
     def registrar() {
-        [artistaInstance: new Artista(params)]
-    }
-
-    def save() {
         if(request.method == 'POST') {
            def artistaInstance = new Artista(params)
            def pass=params.confirmapass
-        /*if (!artistaInstance.save(flush: true)) {
-            render(view: "create", model: [artistaInstance: artistaInstance])
-            return
-        }*/
            if (!artistaInstance.password.equals(pass)){
-               artistaInstance.errors.rejectValue("password", "user.password.dontmatch")
-               redirect(action:"registrar", params:params) //aca va el error de la password
+               artistaInstance.errors.rejectValue("password", "Las contraseñas no coinciden")
+               return [artistaInstance:artistaInstance]
+               //redirect(action:"registrar", params:params) //aca va el error de la password
              }
              else if (artistaInstance.save()) {     
-               flash.message = message(code: 'default.created.message', args: [message(code: 'artista.label', default: 'Artista'), artistaInstance.id])
-               redirect(action: "show", id: artistaInstance.id)
+               //session.user = artistaInstance
+               redirect(controller:"login")
                }
             else {
-                return
+                return [artistaInstance:artistaInstance]
              }
         }
     }
