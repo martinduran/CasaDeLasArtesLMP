@@ -13,10 +13,11 @@
   </head>
   <body>
     <div>
-     <!-- <g:include controller="obra" action="listarObras"></g:include>  -->
+      ${artistaInstance.nombre}
+      <g:include controller="obra" action="listarObras" id="${artistaInstance}"></g:include>  
     </div>
     <div>
-      <g:link controller="obra" action="create" id="${artistaInstance}">Agregar obras</g:link>
+      <g:link controller="obra" action="add" id="${[artista:artistaInstance.id]}">Agregar obras</g:link>
     </div>
   </body>
 </html>

@@ -50,7 +50,7 @@
 						</g:each>
 					
 				</li>
-				</g:if>				
+				</g:if>
 			
 			</ol>
 			<g:form>

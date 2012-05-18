@@ -80,7 +80,7 @@
                                 <g:link controller="categoria" action="list">Categorias</g:link>
                                 </li>
                                 <li class="fieldcontain">
-                                <g:link controller="artista" action="listarObrasArtista" >Obras</g:link>
+                                <g:link controller="artista" action="listarObrasArtista" id="${artistaInstance?.id}">Obras</g:link>
                                 </li>
                                 
 			</ul>                        

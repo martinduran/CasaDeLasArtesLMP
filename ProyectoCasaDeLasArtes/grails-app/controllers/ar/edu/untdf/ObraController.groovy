@@ -9,20 +9,17 @@ class ObraController {
     def index() {
         redirect(action: "list", params: params)
     }
-    
-    def listarObras(){
-        
-        
-    }
 
-    def add(){
-        def artista = Artista.get(params.id)
-        redirect(action: "create", id: artista.id)
-    }
-    
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [obraInstanceList: Obra.list(params), obraInstanceTotal: Obra.count()]
+    }
+    
+    def add(){
+        def obra= new Obra()
+        obra.artista=Artista.get(params.artista)
+        def modelo= [obraInstance:obra]
+        render (view:"create",model:modelo)
     }
 
     def create() {
@@ -51,16 +48,6 @@ class ObraController {
         [obraInstance: obraInstance]
     }
 
-    def edit() {
-        def obraInstance = Obra.get(params.id)
-        if (!obraInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'obra.label', default: 'Obra'), params.id])
-            redirect(action: "list")
-            return
-        }
-
-        [obraInstance: obraInstance]
-    }
 
     def update() {
         def obraInstance = Obra.get(params.id)

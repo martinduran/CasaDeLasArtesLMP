@@ -113,7 +113,7 @@ class ArtistaController {
         }
     }
     
-    def listarObras(){
+    def listarObrasArtista(){
         def artista = Artista.get(params.id)
         [artistaInstance:artista]
         
