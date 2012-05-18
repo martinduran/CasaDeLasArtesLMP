@@ -18,6 +18,14 @@
 	<g:textField name="descripcion" required="" value="${obraInstance?.descripcion}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: obraInstance, field: 'artista', 'error')} required">
+	<label for="artista">
+		<g:message code="obra.artista.label" default="Artista" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="artista" name="artista.id" from="${ar.edu.untdf.Artista.list()}" optionKey="id" required="" value="${obraInstance?.artista?.id}" class="many-to-one"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: obraInstance, field: 'categorias', 'error')} ">
 	<label for="categorias">
 		<g:message code="obra.categorias.label" default="Categorias" />

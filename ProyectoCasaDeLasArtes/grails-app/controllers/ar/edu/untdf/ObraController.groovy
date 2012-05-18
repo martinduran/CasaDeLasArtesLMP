@@ -28,13 +28,13 @@ class ObraController {
 
     def save() {
         def obraInstance = new Obra(params)
+        def artista = params.artista
         if (!obraInstance.save(flush: true)) {
             render(view: "create", model: [obraInstance: obraInstance])
             return
         }
-
-		flash.message = message(code: 'default.created.message', args: [message(code: 'obra.label', default: 'Obra'), obraInstance.id])
-        redirect(action: "show", id: obraInstance.id)
+	flash.message = message(code: 'default.created.message', args: [message(code: 'obra.label', default: 'Obra'), obraInstance.id])
+        redirect(action: "listarObrasArtista", controller:"artista", params: [id:artista.id] )
     }
 
     def show() {
@@ -47,7 +47,6 @@ class ObraController {
 
         [obraInstance: obraInstance]
     }
-
 
     def update() {
         def obraInstance = Obra.get(params.id)
@@ -96,5 +95,10 @@ class ObraController {
 			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'obra.label', default: 'Obra'), params.id])
             redirect(action: "show", id: params.id)
         }
+    }
+    
+    def listarObras(){
+        def artista=Artista.get(params.id)
+        [obrasArtista:artista]
     }
 }

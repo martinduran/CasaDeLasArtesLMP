@@ -9,15 +9,16 @@
   <head>
     <meta name="layout" content="principal">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Mis obras</title>
+    <title>Mis obras: ${artistaInstance.nombre}</title>
   </head>
   <body>
     <div>
-      ${artistaInstance.nombre}
-      <g:include controller="obra" action="listarObras" id="${artistaInstance}"></g:include>  
+      
+        <g:include controller="obra" action="listarObras" id="${artistaInstance.id}"></g:include>  
+       
     </div>
     <div>
-      <g:link controller="obra" action="add" id="${[artista:artistaInstance.id]}">Agregar obras</g:link>
+      <g:link controller="obra" action="add" id="${[artista:artistaInstance]}">Agregar obras</g:link>
     </div>
   </body>
 </html>

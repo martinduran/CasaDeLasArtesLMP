@@ -11,12 +11,9 @@
       <h1><g:message code="Obras"/></h1>
     </div>
     <div>
-      <h3>Aca van las obras...</h3> 
-      <g:each in="${artista.obras}" var="obras">
-           ${obras.nombre}
-          <p>SI ENTRA</p>
+      <g:each in="${obrasArtista.obras}" var="obras">
+        <h4>${obras.nombre}</h4>
       </g:each>
-        
     </div>    
   </body>
 </html>

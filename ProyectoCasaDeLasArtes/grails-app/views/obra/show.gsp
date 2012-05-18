@@ -41,6 +41,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${obraInstance?.artista}">
+				<li class="fieldcontain">
+					<span id="artista-label" class="property-label"><g:message code="obra.artista.label" default="Artista" /></span>
+					
+						<span class="property-value" aria-labelledby="artista-label"><g:link controller="artista" action="show" id="${obraInstance?.artista?.id}">${obraInstance?.artista?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${obraInstance?.categorias}">
 				<li class="fieldcontain">
 					<span id="categorias-label" class="property-label"><g:message code="obra.categorias.label" default="Categorias" /></span>
