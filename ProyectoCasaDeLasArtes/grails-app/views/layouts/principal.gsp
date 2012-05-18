@@ -219,14 +219,12 @@
         
         <!-- Subcontent unit -->
         <div class="subcontent-unit-border-green">
-          <div class="round-border-topleft"></div><div class="round-border-topright"></div>
-          <h1 class="green">Categorias Disponibles</h1>
-          Estoy en categoria
+          <div class="round-border-topleft"></div><div class="round-border-topright"></div>          
+          <g:link controller="categoria" action="show"><h1 class="blue">Categorias Disponibles</h1></g:link>
           <p><g:include controller="categoria" action="listar"/></p>
         </div>
       </div>
-    </div>
-      
+    </div>      
     <!-- C. FOOTER AREA -->      
 
     <div class="footer">
