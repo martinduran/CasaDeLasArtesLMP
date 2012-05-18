@@ -113,8 +113,8 @@ class ArtistaController {
     }
     
     def listarObras(){
-        def artistaInstance = Artista.get(params.id)
+        def artista = Artista.get(params.id)
+        [artistaInstance:artista]
         
-        render(view:"listarObras")
     }
 }

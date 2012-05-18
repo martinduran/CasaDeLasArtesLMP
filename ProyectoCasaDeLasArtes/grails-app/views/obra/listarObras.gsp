@@ -7,10 +7,12 @@
 
 <html>
   <body>
-    <div>
-      <g:if test="${}">
-        
-      </g:if>
+    <div class="main-content">
+      <h1><g:message code="Obras"/></h1>
     </div>
+    <div>
+      <h3>Aca van las obras</h3>     
+        
+    </div>    
   </body>
 </html>

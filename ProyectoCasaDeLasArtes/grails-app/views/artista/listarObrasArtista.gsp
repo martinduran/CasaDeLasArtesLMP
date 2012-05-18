@@ -12,17 +12,11 @@
     <title>Mis obras</title>
   </head>
   <body>
-    <div class="main-content">
-      <h1><g:message code="Obras"/></h1>
+    <div>
+     <!-- <g:include controller="obra" action="listarObras"></g:include>  -->
     </div>
     <div>
-      <h3>Aca van las obras</h3>
-      
-        <g:each in="${artistaInstance.obras}">
-          ${artistaInstance.obras.nombre}
-        </g:each>      
-        
-      
-    </div>           
+      <g:link controller="obra" action="create" id="${artistaInstance}">Agregar obras</g:link>
+    </div>
   </body>
 </html>

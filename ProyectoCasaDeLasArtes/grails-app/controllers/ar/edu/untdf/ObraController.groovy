@@ -9,7 +9,17 @@ class ObraController {
     def index() {
         redirect(action: "list", params: params)
     }
+    
+    def listarObras(){
+        
+        
+    }
 
+    def add(){
+        def artista = Artista.get(params.id)
+        redirect(action: "create", id: artista.id)
+    }
+    
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [obraInstanceList: Obra.list(params), obraInstanceTotal: Obra.count()]

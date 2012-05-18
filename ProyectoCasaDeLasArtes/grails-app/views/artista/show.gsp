@@ -66,16 +66,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${artistaInstance?.obras}">
-				<li class="fieldcontain">
-					<span id="obras-label" class="property-label"><g:message code="artista.obras.label" default="Obras" /></span>
-					
-						<g:each in="${artistaInstance.obras}" var="o">
-						<span class="property-value" aria-labelledby="obras-label"><g:link controller="obra" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
+				
 			
 				<g:if test="${artistaInstance?.telefono}">
 				<li class="fieldcontain">
@@ -86,11 +77,12 @@
 				</li>
 				</g:if>
                                 <li class="fieldcontain">
-                                <g:link controller="categoria" action="list">Categoria</g:link>
+                                <g:link controller="categoria" action="list">Categorias</g:link>
                                 </li>
                                 <li class="fieldcontain">
-                                <g:link action="listarObras">Obras</g:link>
+                                <g:link controller="artista" action="listarObrasArtista" >Obras</g:link>
                                 </li>
+                                
 			</ul>                        
 			<g:form>
 				<fieldset class="buttons">

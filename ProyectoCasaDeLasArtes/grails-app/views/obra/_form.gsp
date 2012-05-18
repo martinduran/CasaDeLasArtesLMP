@@ -18,11 +18,11 @@
 	<g:textField name="descripcion" required="" value="${obraInstance?.descripcion}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: obraInstance, field: 'categorias', 'error')} ">
+<!--<div class="fieldcontain ${hasErrors(bean: obraInstance, field: 'categorias', 'error')} ">
 	<label for="categorias">
 		<g:message code="obra.categorias.label" default="Categorias" />
 		
 	</label>
 	<g:select name="categorias" from="${ar.edu.untdf.Categoria.list()}" multiple="multiple" optionKey="id" size="5" value="${obraInstance?.categorias*.id}" class="many-to-many"/>
-</div>
+</div>-->
 
