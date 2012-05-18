@@ -17,27 +17,35 @@ class ArtistaController {
 
     def registrar() {
         if(request.method == 'POST') {
-           def artistaInstance = new Artista(params)
-           def pass=params.confirmapass
-           if (!artistaInstance.password.equals(pass)){
-               artistaInstance.errors.rejectValue("password", "Las contraseñas no coinciden")
-               return [artistaInstance:artistaInstance]
-               //redirect(action:"registrar", params:params) //aca va el error de la password
-             }
-             else if (artistaInstance.save()) {     
-               //session.user = artistaInstance
-               redirect(controller:"login")
-               }
-            else {
+            def artistaInstance = new Artista(params)
+            def pass=params.confirmapass
+            def loguser =Artista.findByLogin(params.login)
+            if (loguser != null){
+                artistaInstance.errors.rejectValue("login", "El nombre de usuario ${params.login} ya está registrado")
                 return [artistaInstance:artistaInstance]
-             }
+            }
+            else{
+                if (!artistaInstance.password.equals(pass)){
+                    artistaInstance.errors.rejectValue("password", "Las contraseñas no coinciden")
+                    return [artistaInstance:artistaInstance]
+                    //redirect(action:"registrar", params:params) //aca va el error de la password
+                }     
+                else if (artistaInstance.save()) {     
+                    //session.user = artistaInstance
+                    //message= "El usuario se registró con éxito, realice su login"
+                    redirect(controller:"login")
+                }
+                else {
+                    return [artistaInstance:artistaInstance]
+                }
+            }
         }
     }
 
     def show() {
         def artistaInstance = Artista.get(params.id)
         if (!artistaInstance) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'artista.label', default: 'Artista'), params.id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'artista.label', default: 'Artista'), params.id])
             redirect(action: "list")
             return
         }
@@ -68,7 +76,7 @@ class ArtistaController {
             def version = params.version.toLong()
             if (artistaInstance.version > version) {
                 artistaInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'artista.label', default: 'Artista')] as Object[],
+                    [message(code: 'artista.label', default: 'Artista')] as Object[],
                           "Another user has updated this Artista while you were editing")
                 render(view: "edit", model: [artistaInstance: artistaInstance])
                 return
@@ -82,25 +90,25 @@ class ArtistaController {
             return
         }
 
-		flash.message = message(code: 'default.updated.message', args: [message(code: 'artista.label', default: 'Artista'), artistaInstance.id])
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'artista.label', default: 'Artista'), artistaInstance.id])
         redirect(action: "show", id: artistaInstance.id)
     }
 
     def delete() {
         def artistaInstance = Artista.get(params.id)
         if (!artistaInstance) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'artista.label', default: 'Artista'), params.id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'artista.label', default: 'Artista'), params.id])
             redirect(action: "list")
             return
         }
 
         try {
             artistaInstance.delete(flush: true)
-			flash.message = message(code: 'default.deleted.message', args: [message(code: 'artista.label', default: 'Artista'), params.id])
+            flash.message = message(code: 'default.deleted.message', args: [message(code: 'artista.label', default: 'Artista'), params.id])
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'artista.label', default: 'Artista'), params.id])
+            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'artista.label', default: 'Artista'), params.id])
             redirect(action: "show", id: params.id)
         }
     }
